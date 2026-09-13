@@ -1,0 +1,34 @@
+{
+  "files": [
+    {
+      "filename": "crop_detector.onnx",
+      "bytes": 10606565,
+      "sha256": "65e1115041896abec1b8a02f56184176e84683c246200acae33423e994153452"
+    },
+    {
+      "filename": "highcam_platform.onnx",
+      "bytes": 10606542,
+      "sha256": "c7422a12817532a860acb4071b1348202f7455d5ea8be09a68bf2ab5c638be3f"
+    },
+    {
+      "filename": "highcam_rail.onnx",
+      "bytes": 13287604,
+      "sha256": "594ec109a759c297177c1f421b0e257b7497430fcdacd1e8208fbab15ea4c30d"
+    },
+    {
+      "filename": "lanesegyv8.onnx",
+      "bytes": 13287587,
+      "sha256": "5fcb2e7b79d7d3cc779f24e794b03d0a7e930568bd936f47c6ef0be886bf992e"
+    },
+    {
+      "filename": "mobile_sam_mask_decoder.onnx",
+      "bytes": 16505236,
+      "sha256": "83a5a80968c3b678a7b18b7f2a165bcf104f835410da7cfcba79e1e73192070e"
+    },
+    {
+      "filename": "resnet18_image_encoder.onnx",
+      "bytes": 63321621,
+      "sha256": "d266fcdc9e4f0182b59946cd3cf1be331641f1d0d1de2415c4fd94e7a1c9cf0a"
+    }
+  ]
+}

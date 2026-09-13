@@ -1,0 +1,12 @@
+{
+  "model_directory": "models",
+  "environment": {
+    "ASABE_ESP1_PORT": "/dev/esp32_01",
+    "ASABE_ESP2_PORT": "/dev/esp32_02",
+    "ASABE_BOTTOM_CAMERA_DEVICE": "/dev/video0",
+    "ASABE_OVERHEAD_CAMERA_DEVICE": "/dev/video2",
+    "ASABE_ENABLE_LOCAL_KEYS": "1",
+    "ASABE_REMOTE_KEY_HOST": "127.0.0.1",
+    "ASABE_REMOTE_KEY_PORT": "50552"
+  }
+}
