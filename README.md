@@ -56,7 +56,7 @@ The software defaults match the original platform. Confirm device paths, steerin
 | Raspberry Pi 5 with Hailo-8 | HailoRT | [deployment/raspberry-pi-5-hailo8.md](deployment/raspberry-pi-5-hailo8.md) |
 | Jetson Orin Nano | TensorRT | [deployment/jetson-orin-nano.md](deployment/jetson-orin-nano.md) |
 
-These targets share the inference evaluator in `deployment/tools/`. The complete autonomous robot applications use the Jetson TensorRT/CUDA implementation. Model weights and image datasets are distributed through Hugging Face.
+These targets share the inference evaluator in `deployment/tools/`. The complete autonomous robot applications use the Jetson TensorRT/CUDA implementation. Download the [vision models](https://huggingface.co/moeen14/argus-omnimotus-vision-models) and [labeled evaluation dataset](https://huggingface.co/datasets/moeen14/argus-omnimotus-vision-dataset) from Hugging Face.
 
 ## Citation
 

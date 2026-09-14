@@ -10,6 +10,6 @@ All three use `launch_vision.py` and the shared evaluator. It runs inference on 
 
 The five robot applications use the [robot launcher](../docs/programs.md). Dashboard control uses serial, Tkinter and OpenCV; identification and autonomous applications use TensorRT/PyCUDA. The Pi and Hailo paths provide vision evaluation, while full autonomous control uses the Jetson implementation.
 
-Weights and images are distributed through Hugging Face. Keep benchmark assets separate from runtime assets: the benchmark crop model has three classes, while the robot crop model has four.
+[Model weights](https://huggingface.co/moeen14/argus-omnimotus-vision-models) and the [labeled evaluation dataset](https://huggingface.co/datasets/moeen14/argus-omnimotus-vision-dataset) are distributed through Hugging Face. Keep benchmark assets separate from runtime assets: the benchmark crop model has three classes, while the robot crop model has four.
 
 [Repository home](../README.md)

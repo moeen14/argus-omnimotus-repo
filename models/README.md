@@ -2,11 +2,11 @@
 
 [Repository home](../README.md) · [Vision deployment](../deployment/README.md)
 
-Model binaries and image datasets are distributed through Hugging Face. This directory contains the SHA-256 and size manifest for the six ONNX files used by the project. Download the files into this directory before verification and engine building.
+Model binaries are distributed through the [Argus Omnimotus model repository](https://huggingface.co/moeen14/argus-omnimotus-vision-models). The [labeled evaluation dataset](https://huggingface.co/datasets/moeen14/argus-omnimotus-vision-dataset) is available separately. This directory contains the SHA-256 and size manifest for the six ONNX files used by the project. Download the files into this directory before verification and engine building.
 
 ```bash
 python -m pip install -r requirements-models.txt
-python tools/models.py download --repo-id <HUGGING_FACE_REPOSITORY> --revision main
+python tools/models.py download --repo-id moeen14/argus-omnimotus-vision-models --revision main
 python tools/models.py verify
 python tools/models.py build
 ```
@@ -26,4 +26,4 @@ The field task needs rail and crop engines, plus the overhead platform engine wh
 
 The runtime crop detector uses four classes: `gCrop`, `platform`, `ycrop`, `servo`. The overhead detector uses `ball`, `gcrop`, `platform`, `ycrop`. The separate edge benchmark export declares only three crop-detector classes. Do not substitute benchmark models for robot models based on matching filenames.
 
-Model cards should document architecture, class order, preprocessing, input/output shapes, training data, evaluation, and license. Dataset cards should document split definitions, label schema, provenance, and license. Model downloads use the [Hugging Face Hub API](https://huggingface.co/docs/huggingface_hub/guides/download).
+The Hugging Face model and dataset cards document class order, preprocessing, release contents, scope, attribution, and licensing. Model downloads use the [Hugging Face Hub API](https://huggingface.co/docs/huggingface_hub/guides/download).
