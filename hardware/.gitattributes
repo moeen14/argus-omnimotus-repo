@@ -1,0 +1,15 @@
+* text=auto
+*.md text eol=lf
+*.csv text eol=lf
+*.json text eol=lf
+*.stl binary
+*.step binary
+*.stp binary
+*.f3d binary
+*.pdf binary
+*.sldprt filter=lfs diff=lfs merge=lfs -text
+*.sldasm filter=lfs diff=lfs merge=lfs -text
+*.slddrw filter=lfs diff=lfs merge=lfs -text
+*.SLDPRT filter=lfs diff=lfs merge=lfs -text
+*.SLDASM filter=lfs diff=lfs merge=lfs -text
+*.SLDDRW filter=lfs diff=lfs merge=lfs -text

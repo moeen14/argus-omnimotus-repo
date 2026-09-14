@@ -1,8 +1,8 @@
 # Argus Omnimotus
 
-Robot software and vision deployment for the modular agricultural swerve-drive platform.
+Hardware designs, ESP32 firmware, robot software and vision deployment for the modular agricultural swerve-drive platform.
 
-**[Project homepage](docs/project-links.md#project-homepage) ? [CAD, wiring and BOM](docs/project-links.md#hardware) ? [Hugging Face models](docs/project-links.md#vision-models) ? [Datasets](docs/project-links.md#image-datasets) ? [Paper](docs/project-links.md#paper)**
+**[Project homepage](docs/project-links.md#project-homepage) ? [CAD, wiring and BOM](hardware/README.md) ? [Hugging Face models](docs/project-links.md#vision-models) ? [Datasets](docs/project-links.md#image-datasets) ? [Paper](docs/project-links.md#paper)**
 
 ## Five main applications
 
@@ -24,13 +24,13 @@ Edit device paths in the local config before running. Start one application at a
 
 ## Rebuild and run the robot
 
-1. Obtain the [hardware designs and BOM](docs/project-links.md#hardware); check the [firmware-derived wiring](docs/wiring.md).
+1. Obtain the [hardware designs and BOM](hardware/README.md); check the [firmware-derived wiring](docs/wiring.md).
 2. Build/flash both [ESP32 DevKit firmwares](docs/firmware.md).
 3. Set up the [Jetson environment](docs/jetson-setup.md), serial ports and cameras.
 4. Download [vision models from Hugging Face](models/README.md) and build engines on the target Jetson.
 5. Complete [bring-up and calibration](docs/bring-up.md), then choose a main application.
 
-Controller settings match the original robot and must be calibrated for a new build. The supplied workspace did not contain complete CAD or a circuit schematic; the hardware repository identifies those missing build assets.
+Controller settings match the original robot and must be calibrated for a new build. The hardware folder includes the SolidWorks master model and assembly drawing. Printable exports, a complete circuit schematic and the final purchasing BOM still need to be completed.
 
 ## Vision deployment targets
 
@@ -50,11 +50,16 @@ All three have vision inference/evaluation launch code. The full autonomous appl
 | [tuning/](tuning/README.md) | Component calibration and isolated activity tests |
 | [vision/](vision/README.md) | Standalone camera inference utilities |
 | [deployment/](deployment/README.md) | Device-specific setup and vision launch commands |
+| [hardware/](hardware/README.md) | CAD, assembly drawing, wiring reference and component BOM |
 | `firmware/` | Sensor-board and actuator-board ESP32 sketches |
 | `models/` | Download/build tools guide and model hashes; no weights |
 | `experiments/edge/` | Shared multi-device model builders and evaluator |
 | [archive/](archive/README.md) | Earlier control variants retained for reproducibility |
 | `config/`, `tools/`, `tests/` | Local configuration, launch utilities and automated checks |
+
+## Git and large CAD files
+
+Install Git LFS and run `git lfs install` before staging this repository. The 124 MB SolidWorks master model is tracked with LFS; use Git to upload it rather than the browser uploader. Hardware and software share one repository: `https://github.com/moeen14/argus-omnimotus-repo`.
 
 ## Validation and release
 

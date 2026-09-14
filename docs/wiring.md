@@ -1,6 +1,6 @@
 # Firmware-derived wiring reference
 
-[Hardware repository and CAD](project-links.md#hardware) · [Firmware setup](firmware.md)
+[Hardware and CAD](../hardware/README.md) · [Firmware setup](firmware.md)
 
 This pin map is extracted from the packaged firmware. It is a signal reference, not a complete power, connector or protection schematic. All numbers below are ESP32 GPIO numbers, not DevKit header positions.
 

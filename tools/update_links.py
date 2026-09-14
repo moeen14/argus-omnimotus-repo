@@ -21,7 +21,6 @@ def render(links):
 def main():
     parser = argparse.ArgumentParser(description='Generate resource links from project-links.json.')
     parser.add_argument('--strict', action='store_true')
-    parser.add_argument('--hardware-dir', type=Path)
     args = parser.parse_args()
     links = json.loads((ROOT / 'project-links.json').read_text(encoding='utf-8'))
     content = render(links)
@@ -29,12 +28,11 @@ def main():
     if args.strict and missing:
         parser.error('Missing public URLs: ' + ', '.join(missing))
     (ROOT / 'docs/project-links.md').write_text(content, encoding='utf-8')
-    if args.hardware_dir:
-        if not (args.hardware_dir / 'README.md').is_file():
-            parser.error('--hardware-dir must point to the prepared hardware repository.')
-        (args.hardware_dir / 'docs').mkdir(exist_ok=True)
-        (args.hardware_dir / 'project-links.json').write_text(json.dumps(links, indent=2) + '\n', encoding='utf-8')
-        (args.hardware_dir / 'docs/project-links.md').write_text(content, encoding='utf-8')
+    hardware = ROOT / 'hardware'
+    if hardware.is_dir():
+        (hardware / 'docs').mkdir(exist_ok=True)
+        (hardware / 'project-links.json').write_text(json.dumps(links, indent=2) + '\n', encoding='utf-8')
+        (hardware / 'docs/project-links.md').write_text(content, encoding='utf-8')
     print('Resource pages updated.' + (' URLs still needed: ' + ', '.join(missing) if missing else ''))
 
 if __name__ == '__main__':

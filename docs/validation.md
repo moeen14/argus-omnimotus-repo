@@ -6,7 +6,7 @@ The release contains 41 distinct imported Python modules and two firmware sketch
 
 Python comments and documentation strings were removed with syntax-tree equivalence checks that ignore documentation strings. Firmware comment removal preserved executable statements; both resulting sketches compiled. Three camera utilities were then updated to accept `ASABE_CROP_ENGINE` or `ASABE_PLATFORM_ENGINE` while retaining their original fallback paths; these exceptions are recorded in the manifest. No controller gains, motion sequences or servo limits were changed during packaging.
 
-The new launcher supplies device/model configuration without importing the hardware programs during a dry run. Model utilities verify the six exported ONNX files by size and SHA-256. Source-derived wiring records are provided in both software and hardware repositories.
+The new launcher supplies device/model configuration without importing the hardware programs during a dry run. Model utilities verify the six exported ONNX files by size and SHA-256. Source-derived wiring records are provided in the root documentation and hardware folder.
 
 The main programs now live in `applications/`; component tools are in `tuning/`, and older variants in `archive/`. The field application's existing ball-verification switch is configurable at launch, preserving the default of off, and its verification engine is loaded only when enabled. The interlane tuning utility imports the renamed navigation application. The crop identifier's fallback model location now points to `models/`. See the source manifest for these packaging changes.
 
@@ -26,7 +26,7 @@ Hardware execution, TensorRT engine building, camera inference and fresh Jetson 
 
 The exported dashboard is Tkinter, not a browser dashboard. Board 01 owns the encoders; Board 02 owns the LDR. This differs from parts of the manuscript prose. The old deployment note's five-servo count omitted the four steering servos; the firmware controls nine bus servos. The edge benchmark crop detector's three classes also differ from the runtime crop detector's four classes.
 
-The supplied material does not contain complete CAD, an editable electrical schematic, a final purchasing BOM or a model-training pipeline. The hardware repository identifies those missing assets. Generic Pi/Hailo/NCNN benchmark scripts do not imply that the Jetson autonomy application runs on those devices.
+The hardware folder now includes the SolidWorks master multibody model and assembly drawing. Printable exports, an editable electrical schematic, a final purchasing BOM and a model-training pipeline remain incomplete. Generic Pi/Hailo/NCNN benchmark scripts do not imply that the Jetson autonomy application runs on those devices.
 
 Historical device-specific shell wrappers, installed package dumps, development logs, model binaries, dataset images and recordings are excluded from this code release. The reusable benchmark builders and evaluator are included under `experiments/edge/scripts`.
 
