@@ -1,68 +1,67 @@
 # Argus Omnimotus
 
-Hardware designs, ESP32 firmware, robot software and vision deployment for the modular agricultural swerve-drive platform.
+Argus Omnimotus is an open-source, modular agricultural robot for autonomy research and robotics education. The platform combines four-wheel independent swerve drive, distributed ESP32 control, multimodal sensing, interchangeable edge computers, and configurable manipulation in a sense-plan-act-verify architecture.
 
-**[Project homepage](docs/project-links.md#project-homepage) ? [CAD, wiring and BOM](hardware/README.md) ? [Hugging Face models](docs/project-links.md#vision-models) ? [Datasets](docs/project-links.md#image-datasets) ? [Paper](docs/project-links.md#paper)**
+![Argus Omnimotus assembly views](hardware/Assembly_Drawing.jpg)
 
-## Five main applications
+## Repository structure
 
-| Command | File in `applications/` | What it does |
+```text
+argus-omnimotus-repo/
+|-- applications/   Five complete robot applications
+|-- tuning/         Isolated hardware and controller tests
+|-- firmware/       ESP32 sensor-board and motion-board firmware
+|-- hardware/       CAD, assembly drawing, circuit diagram, BOM and pin map
+|-- vision/         Standalone Jetson vision programs
+|-- deployment/     Pi 5, Hailo-8 and Jetson deployment tools
+|-- models/         Model manifest and Hugging Face download/build utility
+|-- docs/           Setup, operation and protocol documentation
+|-- tools/          Application, firmware and model launchers
+`-- tests/          Hardware-independent repository tests
+```
+
+## Main applications
+
+| Command | Program | Purpose |
 |---|---|---|
-| `dashboard` | `operator_dashboard.py` | Operator dashboard for manual control and telemetry |
-| `identify` | `crop_identification.py` | Bottom-camera crop/platform identification |
-| `navigate` | `navigate_testbed.py` | Navigate the testbed without crop actuation tasks |
-| `field` | `field_tasks.py` | Navigate the whole field and perform actuation tasks, with optional ball-placement verification |
-| `lane` | `single_lane_tasks.py` | Travel back and forth along one lane, repeatedly performing tasks |
+| `dashboard` | `applications/operator_dashboard.py` | Operator dashboard, manual control and telemetry |
+| `identify` | `applications/crop_identification.py` | Bottom-camera crop and platform identification |
+| `navigate` | `applications/navigate_testbed.py` | Testbed navigation without crop actuation |
+| `field` | `applications/field_tasks.py` | Full-field navigation and actuation |
+| `lane` | `applications/single_lane_tasks.py` | Repeated navigation and tasks on one lane |
+
+The complete application guide, including optional task verification, is in [docs/programs.md](docs/programs.md). Component-level programs are listed in [tuning/README.md](tuning/README.md).
+
+## Build and run
+
+1. Review the [hardware files](hardware/README.md) and assemble the platform.
+2. Build and flash both ESP32 boards using [docs/firmware.md](docs/firmware.md).
+3. Configure the Jetson using [docs/jetson-setup.md](docs/jetson-setup.md).
+4. Obtain the ONNX weights using [models/README.md](models/README.md), then build TensorRT engines on the Jetson.
+5. Copy and edit the robot configuration, complete [calibration](docs/bring-up.md), and launch an application.
 
 ```bash
-cp config/robot.example.json config/robot.json
+cp robot.example.json robot.json
 python tools/run.py --dry-run dashboard
 python tools/run.py dashboard
 ```
 
-Edit device paths in the local config before running. Start one application at a time; they share the robot's serial ports. See [application instructions](docs/programs.md) for all five commands and the verification flag.
+The software defaults match the original platform. Confirm device paths, steering angles, wheel directions, camera geometry, controller gains, and mission settings before operating another build.
 
-## Rebuild and run the robot
+## Vision deployment
 
-1. Obtain the [hardware designs and BOM](hardware/README.md); check the [firmware-derived wiring](docs/wiring.md).
-2. Build/flash both [ESP32 DevKit firmwares](docs/firmware.md).
-3. Set up the [Jetson environment](docs/jetson-setup.md), serial ports and cameras.
-4. Download [vision models from Hugging Face](models/README.md) and build engines on the target Jetson.
-5. Complete [bring-up and calibration](docs/bring-up.md), then choose a main application.
-
-Controller settings match the original robot and must be calibrated for a new build. The hardware folder includes the SolidWorks master model and assembly drawing. Printable exports, a complete circuit schematic and the final purchasing BOM still need to be completed.
-
-## Vision deployment targets
-
-| Hardware | Backend | Guide |
+| Target | Backend | Guide |
 |---|---|---|
-| Raspberry Pi 5 CPU | NCNN | [Pi 5 deployment](deployment/raspberry-pi-5.md) |
-| Raspberry Pi 5 + Hailo-8 | HailoRT | [Hailo-8 deployment](deployment/raspberry-pi-5-hailo8.md) |
-| Jetson Orin Nano | TensorRT | [Orin Nano deployment](deployment/jetson-orin-nano.md) |
+| Raspberry Pi 5 | NCNN | [deployment/raspberry-pi-5.md](deployment/raspberry-pi-5.md) |
+| Raspberry Pi 5 with Hailo-8 | HailoRT | [deployment/raspberry-pi-5-hailo8.md](deployment/raspberry-pi-5-hailo8.md) |
+| Jetson Orin Nano | TensorRT | [deployment/jetson-orin-nano.md](deployment/jetson-orin-nano.md) |
 
-All three have vision inference/evaluation launch code. The full autonomous applications currently require Jetson TensorRT/CUDA; they have not been ported to Pi/Hailo. The exported robot used AGX Orin, and Orin Nano operation still requires physical validation. Weights and images stay on Hugging Face.
+These targets share the inference evaluator in `deployment/tools/`. The complete autonomous robot applications use the Jetson TensorRT/CUDA implementation. Model weights and image datasets are distributed through Hugging Face.
 
-## Where things live
+## Citation
 
-| Folder | Purpose |
-|---|---|
-| `applications/` | The five main robot programs |
-| [tuning/](tuning/README.md) | Component calibration and isolated activity tests |
-| [vision/](vision/README.md) | Standalone camera inference utilities |
-| [deployment/](deployment/README.md) | Device-specific setup and vision launch commands |
-| [hardware/](hardware/README.md) | CAD, assembly drawing, wiring reference and component BOM |
-| `firmware/` | Sensor-board and actuator-board ESP32 sketches |
-| `models/` | Download/build tools guide and model hashes; no weights |
-| `experiments/edge/` | Shared multi-device model builders and evaluator |
-| [archive/](archive/README.md) | Earlier control variants retained for reproducibility |
-| `config/`, `tools/`, `tests/` | Local configuration, launch utilities and automated checks |
+Please cite the project using [CITATION.cff](CITATION.cff). Contributions are described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Git and large CAD files
+## License
 
-Install Git LFS and run `git lfs install` before staging this repository. The 124 MB SolidWorks master model is tracked with LFS; use Git to upload it rather than the browser uploader. Hardware and software share one repository: `https://github.com/moeen14/argus-omnimotus-repo`.
-
-## Validation and release
-
-Both ESP32 sketches compile for DevKit. Hardware-independent checks cover Python syntax, launch configuration, model checksums and repository links; they do not validate physical motion. See [validation](docs/validation.md).
-
-Please cite [CITATION.cff](CITATION.cff) when using the project in research. Read [CONTRIBUTING.md](CONTRIBUTING.md) before modifying control code. Public links and the project license still need the owner's release details: [release preparation](docs/release.md), [license status](LICENSE-STATUS.md).
+Argus Omnimotus is released under the [MIT License](LICENSE).

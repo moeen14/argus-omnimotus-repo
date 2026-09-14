@@ -1,6 +1,6 @@
 # Stable serial and camera names
 
-Use `/dev/serial/by-id` and `/dev/v4l/by-id` paths in `config/robot.json` where available. Identify boards one at a time so sensor and actuator assignments are unambiguous.
+Use `/dev/serial/by-id` and `/dev/v4l/by-id` paths in `robot.json` where available. Identify boards one at a time so sensor and actuator assignments are unambiguous.
 
 If both ESP32 USB adapters report the same serial number, inspect physical connection attributes:
 
@@ -18,4 +18,4 @@ SUBSYSTEM=="tty", KERNELS=="ACTUATOR_USB_PATH", ATTRS{idVendor}=="10c4", ATTRS{i
 
 The VID/PID above are from the exported robot's CP210x adapters; check yours. Reload with `sudo udevadm control --reload-rules`, then reconnect the boards. Topology aliases change meaning if cables move between hub ports. Confirm identities before enabling actuator power.
 
-[Jetson setup](jetson-setup.md) · [Wiring](wiring.md)
+[Jetson setup](jetson-setup.md) | [Wiring](../hardware/Pin_Map.md)

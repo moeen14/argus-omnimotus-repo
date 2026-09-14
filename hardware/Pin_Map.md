@@ -1,8 +1,8 @@
 # Firmware-derived wiring reference
 
-[Hardware and CAD](../hardware/README.md) · [Firmware setup](firmware.md)
+[Hardware overview](README.md) · [Firmware setup](../docs/firmware.md)
 
-This pin map is extracted from the packaged firmware. It is a signal reference, not a complete power, connector or protection schematic. All numbers below are ESP32 GPIO numbers, not DevKit header positions.
+This pin map is extracted from the released firmware. All numbers below are ESP32 GPIO numbers, not DevKit header positions.
 
 ## Board 01: sensors
 
@@ -43,4 +43,4 @@ Drive PWM is 1 kHz, 8-bit. Motors and serial motion commands use BR, FR, BL, FL 
 
 The original deployment note counted only IDs 5–9; the firmware controls **nine** bus servos. GPIO 15 appears on both boards for different functions; that is not a same-board conflict.
 
-The manuscript's board ownership descriptions differ from the source for the wheel encoders and dispenser LDR. This release follows the firmware: **encoders on Board 01, LDR on Board 02**. Verify the physical harness and reconcile the final circuit drawing before publishing it as a build specification.
+The released firmware assigns the **wheel encoders to Board 01** and the **dispenser LDR to Board 02**. These firmware assignments govern the GPIO connections.

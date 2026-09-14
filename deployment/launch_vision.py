@@ -15,7 +15,7 @@ def command_for(target, model, data, task, reference=None):
     backend, suffix, _ = TARGETS[target]
     if model.suffix != suffix:
         raise ValueError(f'{target} expects a {suffix} model.')
-    command = [sys.executable, str(ROOT / 'experiments/edge/scripts/evaluate.py'),
+    command = [sys.executable, str(ROOT / 'deployment/tools/evaluate.py'),
                '--backend', backend, '--model', str(model.resolve()), '--data', str(data.resolve()),
                '--task', task, '--device', target]
     if reference:

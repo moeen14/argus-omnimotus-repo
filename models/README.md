@@ -1,17 +1,17 @@
 # Vision assets
 
-[Project resources and Hugging Face links](../docs/project-links.md) · [Repository home](../README.md)
+[Repository home](../README.md) · [Vision deployment](../deployment/README.md)
 
-Model binaries and image datasets belong on Hugging Face. This directory contains the SHA-256 and size manifest for six ONNX files from the robot export. Place those exact files at the root of the eventual Hugging Face model repository, or copy them here locally before checking them.
+Model binaries and image datasets are distributed through Hugging Face. This directory contains the SHA-256 and size manifest for the six ONNX files used by the project. Download the files into this directory before verification and engine building.
 
 ```bash
 python -m pip install -r requirements-models.txt
-python tools/models.py download --repo-id OWNER/MODEL_REPOSITORY --revision COMMIT_OR_TAG
+python tools/models.py download --repo-id <HUGGING_FACE_REPOSITORY> --revision main
 python tools/models.py verify
 python tools/models.py build
 ```
 
-Replace the repository and revision placeholders after the models are published. The download command checks every file against `manifest.json`. `build` runs `trtexec --fp16` on the target Jetson; it never downloads a prebuilt engine. Use `--directory` for another asset folder and set the same folder in `config/robot.json`. Use repeated `--model FILENAME.onnx` arguments to select individual models.
+The download command checks every file against `manifest.json`. `build` runs `trtexec --fp16` on the target Jetson. Use `--directory` for another asset folder and set the same folder in `robot.json`. Repeat `--model FILENAME.onnx` to select individual models.
 
 | ONNX file | Role |
 |---|---|
@@ -26,4 +26,4 @@ The field task needs rail and crop engines, plus the overhead platform engine wh
 
 The runtime crop detector uses four classes: `gCrop`, `platform`, `ycrop`, `servo`. The overhead detector uses `ball`, `gcrop`, `platform`, `ycrop`. The separate edge benchmark export declares only three crop-detector classes. Do not substitute benchmark models for robot models based on matching filenames.
 
-When publishing on Hugging Face, include model cards with architecture, source weights, class order, preprocessing, input/output shapes, training data, evaluation scope, license and this code repository/homepage links. For datasets, include the split definitions, label schema, provenance, license and a dataset card. Model download behavior follows [Hugging Face Hub's download API](https://huggingface.co/docs/huggingface_hub/guides/download).
+Model cards should document architecture, class order, preprocessing, input/output shapes, training data, evaluation, and license. Dataset cards should document split definitions, label schema, provenance, and license. Model downloads use the [Hugging Face Hub API](https://huggingface.co/docs/huggingface_hub/guides/download).

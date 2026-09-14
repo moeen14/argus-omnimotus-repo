@@ -10,18 +10,18 @@ python -m pip install -r deployment/requirements-cpu.txt
 python deployment/launch_vision.py pi5 --check
 ```
 
-Obtain matching NCNN `.param` and `.bin` files plus labeled benchmark images from the project's [Hugging Face release](../docs/project-links.md). Until URLs are supplied, the paths below refer to locally supplied assets:
+Obtain matching NCNN `.param` and `.bin` files plus labeled benchmark images from the project's Hugging Face release:
 
 ```bash
 python deployment/launch_vision.py pi5 --model /path/to/platform.param --data /path/to/platform-dataset --task highcam_platform --onnx-ref /path/to/platform.onnx
 ```
 
-For conversion, use `experiments/edge/scripts/ncnn_compile.py` on a build host with pnnx and the NCNN conversion tools:
+For conversion, use `deployment/tools/ncnn_compile.py` on a build host with pnnx and the NCNN conversion tools:
 
 ```bash
-python experiments/edge/scripts/ncnn_compile.py --onnx /path/to/platform.onnx --calib /path/to/platform-dataset/images --out /path/to/ncnn-output --tools /path/to/ncnn-tools --pnnx /path/to/pnnx
+python deployment/tools/ncnn_compile.py --onnx /path/to/platform.onnx --calib /path/to/platform-dataset/images --out /path/to/ncnn-output --tools /path/to/ncnn-tools --pnnx /path/to/pnnx
 ```
 
-The converter creates the backend assets; it does not train the model. NCNN build instructions are maintained by [Tencent/NCNN](https://github.com/Tencent/ncnn/wiki/how-to-build). Device inference, timings and package installation still need validation on the actual Pi.
+The converter creates the backend assets; it does not train the model. NCNN build instructions are maintained by [Tencent/NCNN](https://github.com/Tencent/ncnn/wiki/how-to-build).
 
 [Deployment targets](README.md)

@@ -29,7 +29,7 @@ def prepare(script, config_path):
 
 def main():
     parser = argparse.ArgumentParser(description='Launch Argus software with local device and model configuration.')
-    parser.add_argument('--config', type=Path, default=ROOT / 'config/robot.json')
+    parser.add_argument('--config', type=Path, default=ROOT / 'robot.json')
     parser.add_argument('--dry-run', action='store_true')
     parser.add_argument('--verification', choices=['on', 'off'], help='Enable or disable ball-placement verification for the field application')
     parser.add_argument('script', help='dashboard, identify, navigate, field, lane, keyboard, or repository-relative Python path')

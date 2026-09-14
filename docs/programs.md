@@ -1,6 +1,6 @@
 # Main applications
 
-Run commands from the repository root after completing [setup](jetson-setup.md), [model deployment](../models/README.md) and [calibration](bring-up.md). Edit `config/robot.json` first. The launcher options go before the application name.
+Run commands from the repository root after completing [setup](jetson-setup.md), [model deployment](../models/README.md), and [calibration](bring-up.md). Edit `robot.json` first. Launcher options go before the application name.
 
 | Application | Launch command | Original source |
 |---|---|---|
@@ -10,7 +10,7 @@ Run commands from the repository root after completing [setup](jetson-setup.md),
 | Full-field navigation and tasks | `python tools/run.py field` | `Tests/main_task.py` |
 | Repeated single-lane tasks | `python tools/run.py lane` | `Tests/lane_platform_alignment_test.py` |
 
-The navigation and lane programs use the fuller task-folder variants. Earlier robot-folder variants are in `archive/robot_variants/`. The five primary files have descriptive names in `applications/`; original-to-current mappings are recorded in [reorganization.json](reorganization.json).
+The five primary programs are located directly in `applications/` with names that describe their roles.
 
 ## Optional field verification
 

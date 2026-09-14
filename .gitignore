@@ -3,7 +3,7 @@ __pycache__/
 .venv/
 venv/
 .env
-config/robot.json
+robot.json
 *.onnx
 *.engine
 *.pt
@@ -34,7 +34,6 @@ datasets/
 build/
 .DS_Store
 Thumbs.db
-!hardware/bom/*.csv
-!hardware/cad/drawings/*.jpg
-!hardware/cad/drawings/*.jpeg
-!hardware/cad/drawings/*.png
+!hardware/BOM.csv
+!hardware/Assembly_Drawing.jpg
+!hardware/Circuit_Diagram.png

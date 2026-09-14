@@ -1,6 +1,6 @@
 # Serial protocol
 
-[Firmware](firmware.md) · [Wiring](wiring.md)
+[Firmware](firmware.md) | [Wiring](../hardware/Pin_Map.md)
 
 Each board uses USB serial at 921600 baud. Send ASCII commands terminated by a newline. Responses, telemetry and asynchronous completion messages may interleave; clients must parse records rather than assume the next line answers the last command. The sketches remain the complete protocol specification.
 

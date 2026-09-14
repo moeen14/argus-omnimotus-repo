@@ -32,7 +32,7 @@ def main():
             parser.error(f'Unknown models: {sorted(unknown)}')
         records = [item for item in records if item['filename'] in args.model]
     if args.action == 'download' and not args.repo_id:
-        parser.error('--repo-id OWNER/MODELS is required; the public repository is not configured yet.')
+        parser.error('--repo-id is required for downloading model files.')
     args.directory.mkdir(parents=True, exist_ok=True)
     for record in records:
         path = args.directory / record['filename']

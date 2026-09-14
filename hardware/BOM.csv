@@ -1,0 +1,20 @@
+category,quantity,component,role
+Computing,1,NVIDIA Jetson AGX Orin 64 GB,High-level perception planning and supervision
+Embedded control,2,ESP32 DevKit V1,Sensor and motion controllers
+Vision,2,Logitech C270 USB camera,Bottom and overhead vision
+Range sensing,7,VL53L1X-compatible ToF module,Navigation and alignment ranging
+Inertial sensing,1,LSM6DSOX and LIS3MDL 9-DoF IMU,Acceleration angular rate and magnetic sensing
+Wheel feedback,4,AS5048A magnetic encoder,Wheel rotation sensing
+Display,1,0.96-inch SSD1306 I2C OLED,Local status display
+Drive,4,300 RPM 12 V DC gearmotor,Wheel propulsion
+Drive electronics,2,L298N dual H-bridge motor driver,DC motor control
+Steering and mechanisms,9,STS3215 serial bus servo,Four steering axes and five mechanism axes
+Servo interface,1,Serial bus servo adapter,ESP32-to-STS servo interface
+Auxiliary actuation,2,SG90 micro servo,Distal flap and dispenser
+Task sensing,1,LDR and white LED,Dispenser state sensing
+Status,1,RGB LED,Robot state indication
+Battery,2,4200 mAh 3S LiPo battery,Robot power
+Power conversion,1,Boost converter,19 V rail
+Power conversion,2,Buck converter,5 V and 3.3 V rails
+Structure,1 set,3D-printed PLA chassis,Robot frame and mechanisms
+Structure,2,5 mm steel rod,Chassis reinforcement

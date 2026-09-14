@@ -1,6 +1,6 @@
 # Bring-up and calibration
 
-1. Check the [firmware-derived wiring](wiring.md), board roles and power distribution against the actual robot. Verify the chosen servo supply, motor supply and common ground using the hardware design; GPIO tables alone are not a complete electrical schematic.
+1. Check the [circuit diagram and firmware-derived pin map](../hardware/README.md), board roles, and power distribution. Verify the servo supply, motor supply, and common ground before applying power.
 2. Flash each DevKit and verify serial identities at 921600 baud. With actuator power isolated, check Board 01's sensor telemetry and both camera feeds.
 3. Configure stable serial/camera paths and matching model files. Preview the launch command with `python tools/run.py --dry-run dashboard`.
 4. Raise the wheels clear of the ground and keep mechanisms clear before enabling actuator power. Dashboard and task initialization can reposition servos. Keep a physical power disconnect reachable; `X` stops drive motors but is not a complete mechanism emergency stop.
@@ -11,6 +11,6 @@
 
 Run one process owning the serial ports at a time. Stop the dashboard before starting autonomy or a hardware test. The scripts do not implement shared serial arbitration.
 
-Controller constants remain in their original modules to preserve the experimental implementation. The JSON config centralizes device names and model location; it does not yet expose every gain, geometry or mission parameter.
+Controller constants are defined in their application modules. The JSON configuration centralizes device names and model locations.
 
-[Repository home](../README.md) · [Project resources](project-links.md)
+[Repository home](../README.md) · [Hardware](../hardware/README.md)

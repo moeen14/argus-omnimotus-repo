@@ -14,4 +14,4 @@ python tools/firmware.py compile
 
 Never run the `tuning/*_test.py` programs as a unit-test suite: they access physical hardware. Record hardware validation separately, including motion limits, model hashes and observed failures. A passing compile or CI run is not physical validation.
 
-Keep datasets, weights, TensorRT engines, virtual environments and generated recordings out of Git. Update the model manifest only with a documented model change. Use [project resources](docs/project-links.md) for the related hardware and Hugging Face repositories.
+Keep datasets, weights, TensorRT engines, virtual environments and generated recordings out of Git. Update the model manifest only with a documented model change. Keep hardware files under [`hardware/`](hardware/) and model metadata under [`models/`](models/).
