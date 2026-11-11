@@ -1,8 +1,10 @@
-# Argus Omnimotus
+# Agibot
 
-Argus Omnimotus is an open-source, modular agricultural robot for autonomy research and robotics education. The platform combines four-wheel independent swerve drive, distributed ESP32 control, multimodal sensing, interchangeable edge computers, and configurable manipulation in a sense-plan-act-verify architecture.
+Agibot is an open-source, modular, low-cost agricultural robotics platform designed for autonomy research and experimentation, with potential applications in hands-on robotics education. The platform combines four-wheel independent swerve drive, distributed ESP32 control, multimodal sensing, interchangeable edge computers, and configurable manipulation in a sense-plan-act-verify architecture.
 
-![Argus Omnimotus assembly views](hardware/Assembly_Drawing.jpg)
+![Agibot assembly views](hardware/Assembly_Drawing.jpg)
+
+Project website: [moeen14.github.io/agibot-homepage](https://moeen14.github.io/agibot-homepage/) · Paper: [arXiv:2611.10235](https://arxiv.org/abs/2611.10235v1)
 
 ## Repository structure
 
@@ -64,4 +66,4 @@ Please cite the project using [CITATION.cff](CITATION.cff). Contributions are de
 
 ## License
 
-Argus Omnimotus is released under the [MIT License](LICENSE).
+Agibot is released under the [MIT License](LICENSE).

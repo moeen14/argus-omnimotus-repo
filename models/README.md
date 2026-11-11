@@ -2,7 +2,7 @@
 
 [Repository home](../README.md) · [Vision deployment](../deployment/README.md)
 
-Model binaries are distributed through the [Argus Omnimotus model repository](https://huggingface.co/moeen14/argus-omnimotus-vision-models). The [labeled evaluation dataset](https://huggingface.co/datasets/moeen14/argus-omnimotus-vision-dataset) is available separately. This directory contains the SHA-256 and size manifest for the six ONNX files used by the project. Download the files into this directory before verification and engine building.
+Model binaries are distributed through the [Agibot model repository](https://huggingface.co/moeen14/argus-omnimotus-vision-models). The [labeled evaluation dataset](https://huggingface.co/datasets/moeen14/argus-omnimotus-vision-dataset) is available separately. This directory contains the SHA-256 and size manifest for the six ONNX files used by the project. Download the files into this directory before verification and engine building.
 
 ```bash
 python -m pip install -r requirements-models.txt

@@ -14,11 +14,11 @@ This directory contains the mechanical model, assembly drawing, system circuit d
 
 ## Assembly drawing
 
-![Argus Omnimotus assembly drawing](Assembly_Drawing.jpg)
+![Agibot assembly drawing](Assembly_Drawing.jpg)
 
 ## Circuit diagram
 
-![Argus Omnimotus circuit diagram](Circuit_Diagram.png)
+![Agibot circuit diagram](Circuit_Diagram.png)
 
 The circuit diagram presents the system-level connections. Use [Pin_Map.md](Pin_Map.md) and the two sketches in [`firmware/`](../firmware/) for implemented GPIO assignments and serial commands. Board 01 handles the wheel encoders in the released firmware, while Board 02 handles the dispenser LDR.
 

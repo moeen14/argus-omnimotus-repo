@@ -1,29 +1,39 @@
 cff-version: 1.2.0
 message: "Please cite this project when using the robot software or platform in research."
 type: software
-title: "Argus Omnimotus"
+title: "Agibot"
 authors:
   - family-names: "Islam"
     given-names: "Moeen Ul"
   - family-names: "Adhikari"
     given-names: "Bishal"
+  - family-names: "Edwards"
+    given-names: "Kori"
+  - family-names: "Harvey"
+    given-names: "Lorien"
   - family-names: "Thomasson"
     given-names: "J. Alex"
   - family-names: "Chen"
     given-names: "Dong"
 preferred-citation:
   type: unpublished
-  title: "Argus Omnimotus: An Open-Source Modular Swerve-Drive Robot Platform for Agricultural Robotics Research and Education"
+  title: "Agibot: An Open-Source Modular Swerve-Drive Robot Platform for Agricultural Robotics Research and Education"
   authors:
     - family-names: "Islam"
       given-names: "Moeen Ul"
     - family-names: "Adhikari"
       given-names: "Bishal"
+    - family-names: "Edwards"
+      given-names: "Kori"
+    - family-names: "Harvey"
+      given-names: "Lorien"
     - family-names: "Thomasson"
       given-names: "J. Alex"
     - family-names: "Chen"
       given-names: "Dong"
   year: 2026
-  notes: "Unpublished manuscript; Mississippi State University."
+  notes: "arXiv:2611.10235 [cs.RO]."
+  url: "https://arxiv.org/abs/2611.10235"
 
 repository-code: "https://github.com/moeen14/argus-omnimotus-repo"
+url: "https://moeen14.github.io/agibot-homepage/"
